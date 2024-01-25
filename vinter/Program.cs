@@ -38,15 +38,79 @@ while (true)
     }
 }
 
-int herohp = 100;
+
 
 void RestOfTheGame()
 {
+    int herohp = 100;
     Console.WriteLine("Du går in lite längre och ser Sus hjärtat av NTI, hon spelar en viktig roll för att du ska överleva.");
     Console.WriteLine("Sus varnar dig att de finns mycket farliga varelser i närheten ");
     Console.WriteLine("Sus vill hjälpa dig behålla gamla Nti och ger dig ett val");
-    Console.WriteLine("Hon säger vill du ha en enegidryck eller macka");
+    Console.WriteLine("Hon säger vill du ha en energidryck eller macka");
+    string val = Console.ReadLine().ToLower();
+    if(val == "macka")
+    {
+        Console.WriteLine("Sus säger att hon är stolt och ger dig 20 extra hp");
+        herohp += 20;
+        Console.WriteLine($"Ditt hp är nu {herohp}");
+    }
+    
+    else if(val == "energidryck")
+    {
+      Console.WriteLine("Sus säger att hon är inte är stolt och ger dig bara 10 extra hp");
+        herohp += 10;
+        Console.WriteLine($"Ditt hp är nu {herohp}");  
+    }
 
+     Console.WriteLine("Sus säger att de finns en  boss i närheten");
+     Console.WriteLine("Sus säger att  bossen har tagit godis från henne");
+     Console.WriteLine("Hon säger att du måste slakta den och som belöning får du ett matkort");
+     Console.WriteLine("Hon leder dig vägen till 400 vånigen ");
+     Console.WriteLine("Tekinkarnas värsta fiende estetarna");
+     Console.WriteLine("Du ser en grupp estetarna gömma nått du gå fram och flyttar på de");
+     Console.WriteLine("Där ser du Nti hjärtat mackerspace de har stulit mackerspace och du utamnar de till en duel"); 
+    
+    int villianhp = 100;
+    string heroname = "du";
+    string villianname = "Estetarna";
+
+    Random generator = new Random();
+
+    while (herohp > 0 && villianhp > 0) 
+    {
+    Console.WriteLine("\n-----===Ny Runda===-----");
+    Console.WriteLine($"{heroname}: {herohp}  {villianname}: {villianhp}");
+
+    int heroskada = generator.Next(20);
+    villianhp -= heroskada;
+    villianhp = Math.Max(0, villianhp);
+    Console.WriteLine($"{heroname} gör {heroskada} skada på {villianname}");
+
+    int villianskada = generator.Next(20);
+    herohp -= villianskada;
+    herohp = Math.Max(0, herohp);
+    Console.WriteLine($"{villianname} gör {villianskada} skada på dig");
+    Console.WriteLine(" Tryck på valfri kanpp för att fortsätta");
+    Console.ReadKey();
+    }
+
+   Console.WriteLine("--------Stiden är över--------");
+
+if (herohp == 0 && villianhp == 0)
+{
+  Console.WriteLine("De blev ingen vinare trycka valfri knapp för att börja om försök bättre nästa gång.");  
+}
+else if (herohp == 0)
+{
+ Console.WriteLine($"{villianname} Kanske Vann tryck valfri knapp för att börja om försök bättre nästa gång");   
+}
+else if (villianhp == 0)
+{
+Console.WriteLine($"{heroname}  vann");
+Console.WriteLine("Sus kommer fram till dig och tackar dig");
+Console.WriteLine("Hon bär up macker space till den räta platsen");
+Console.WriteLine("Hon ger dig matkortet och säger till dig att dra till subway och Nti kommer vara lika bra som förr igen.");
+}
 
 
     Console.ReadLine();
