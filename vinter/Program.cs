@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Runtime.CompilerServices;
 
-
+ // Starten av spelet där man får svara på frågor 
 while (true)
 {
 
@@ -38,7 +38,7 @@ while (true)
     }
 }
 
-
+//skapar en void så om man svarar fel kan man inte komma vidare i spelet
 
 void RestOfTheGame()
 {
@@ -76,16 +76,19 @@ void RestOfTheGame()
 
     Random generator = new Random();
 
+    // Kör striden så länge båda lever
     while (herohp > 0 && villianhp > 0) 
     {
     Console.WriteLine("\n-----===Ny Runda===-----");
     Console.WriteLine($"{heroname}: {herohp}  {villianname}: {villianhp}");
 
+    // Gör skada på fienden 
     int heroskada = generator.Next(20);
-    villianhp -= heroskada;
+    villianhp -= heroskada;                            
     villianhp = Math.Max(0, villianhp);
     Console.WriteLine($"{heroname} gör {heroskada} skada på {villianname}");
 
+    // gör skada på hero
     int villianskada = generator.Next(20);
     herohp -= villianskada;
     herohp = Math.Max(0, herohp);
@@ -93,9 +96,8 @@ void RestOfTheGame()
     Console.WriteLine(" Tryck på valfri kanpp för att fortsätta");
     Console.ReadKey();
     }
-
-   Console.WriteLine("--------Stiden är över--------");
-
+   Console.WriteLine("--------Striden är över--------");
+    // Om man man vinner,förlorar eller om de blir ovagjort ska de komma olika svar eller om man behöver starta om
 if (herohp == 0 && villianhp == 0)
 {
   Console.WriteLine("De blev ingen vinare trycka valfri knapp för att börja om försök bättre nästa gång.");  
