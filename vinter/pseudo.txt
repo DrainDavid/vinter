@@ -1,0 +1,18 @@
+Början av speltet
+WriteLine SÄg hej och förklarar lite om spelet
+
+
+En loop som håller spelaren i starten av spelt om hen inte svarar rätt på frågorna
+
+while medans de är true
+
+ GÅ in till Nti eller inte 
+
+ While  svaret är gå in eller inte.
+
+if du går in= strata resten av spelet
+
+else if inte =- Du valde fel börja om 
+
+
+
